@@ -88,3 +88,19 @@ function exemplo04(){
         "\nDistância estimada: " + distancia + " km");
     
 }
+
+// <button type="button" onclick="calcularTempoMes()">Calcular Segundos</button>
+function calcularTempoMes() {
+    let segundosPorMinuto = 60;
+    let minutosPorHora = 60;
+    let horasPorDia = 24;
+
+    let segundosPorDia = segundosPorMinuto * minutosPorHora * horasPorDia;
+
+    alert(
+        "Segundos por minuto: " + segundosPorMinuto +
+        "\nMinutos por hora: " + minutosPorHora +
+        "\nHoras por dia: " + horasPorDia +
+        "\nSegundos por dia: " + segundosPorDia
+    );
+}

@@ -91,3 +91,46 @@ function finalizarAvaliacao(){
     bom = 0;
     otimo = 0;
 }
+function exemploOperadorLogicoE() {
+    let idade = parseInt(prompt("Digite a idade: "));
+
+    // 0, 1, 2, 3, 4, ... 17
+    if ((idade >= 0) && (idade <= 17)) {
+        alert("Criança ou adolescente");
+    } else if(idade >= 18) {
+        alert("Adulta");
+    } else {
+        alert("Idade inválida");
+    }
+}
+
+/*
+Tabela Verdade Operador E
+V e V => V
+V e F => F
+F e V => F
+F e F => F
+*/
+
+function exemploOperadorLogicoOu() {
+    let transporte = prompt("Digite o meio de transporte para viajar");
+
+    // pepeline |
+    if ((transporte === "moto") || (transporte === "carro")) {
+        alert("Viajar de boas");
+    } else {
+        alert("Não vamos viajar");
+    }
+}
+
+/*
+    limpar Banheiro ou limpar janelas => pão de queijo de minas
+    caso contrário ....
+
+    Tabela Verdade Ou
+    V ou V => V
+    V ou F => V
+    F ou V => V
+    F ou F => F
+*/
+
