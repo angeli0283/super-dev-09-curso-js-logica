@@ -125,13 +125,16 @@ function exercicio07SolicitarPressaoArterial() { // FALAR COM O PROFESSOR
     let contadorPacientesMaior = 0;
     
     while (indice < 6) {
-        pressaoArtirial = parseInt(prompt("Qual é sua pressao arterial: ")).trim();  
-        if (pressaoArtirial > 14 ) { // 1.555555555555556
+        pressaoArtirial = prompt("Qual é sua pressao arterial: ").trim();  
+        
+        let partes = pressaoArtirial.split("/")
+        if ((partes[0] > 14) || (partes[1]) > 9) {
             contadorPacientesMaior = contadorPacientesMaior + 1;
+            
         }
-    indice = indice + 1;
+    indice = indice + 1
     }
-    alert(contadorPacientesMaior + " " + "Maiores de 14")
+    console.log(contadorPacientesMaior);
 }
 function exercicio08MenuContinuarCadastro() {
     let nome = "";
@@ -176,7 +179,7 @@ function exercicio10MaiorTemperatura() {
 }
 function exercicio11MenorTemperatura() {
     let indice = 0;
-    let menorTemperatura = 99999999999;
+    let menorTemperatura = Infinity;
     let temperatura = 0;
 
     while (indice < 5) {
@@ -259,6 +262,123 @@ function exercicio14ValidarOpcaoMenu() {
         }
     }
 }
+function exercicio15RelatorioPacientes() {
+    let nome = "";
+    let idade = 0;
+    let quantidadePacientesCadastrados = 0;
+    let contadorMaioresDeSessenta = 0;
+    let maiorTemperatura = 0;
+    let temperatura = 0;
+    let menorTemperatura = Infinity;
+    let somaIdades = 0;
+
+        while (quantidadePacientesCadastrados < 3) {
+            let nome = prompt("Nome do Paciente: ") ;
+            while ((nome.length < 2) || (nome.length > 20)) { // NOME
+                let nome = prompt("Nome inváilido, deve conter no minino 2 caracteres e no maximo 20." +
+                    "\n digite seu nome: "
+                ).trim();
+            }
+
+            let idade = parseInt(prompt("Digite a idade: ")) // IDADE
+            while ((idade < 0) || (idade > 120)) {
+                idade = parseInt(prompt("Idade invalida.Digite sua idade: "))
+                }
+
+            if (idade >= 60) { // IDADE CONTADOR
+                contadorMaioresDeSessenta = contadorMaioresDeSessenta + 1;
+            }
+            somaIdades = somaIdades + idade;
+        
+            let temperatura = parseInt(prompt("Digite a temperatura")); 
+                
+            while ((temperatura < 30) || (temperatura > 45)) {
+                temperatura = prompt("Temperatura invalida. Digite a temperatura");
+            } 
+            if (temperatura > maiorTemperatura) { // VERIFICADOR DE TEMPERATURA
+                maiorTemperatura = temperatura;
+            } else if (temperatura < menorTemperatura) {
+                menorTemperatura = temperatura;
+            } else if ((temperatura < 30) || (temperatura > 45)) {
+                temperatura = prompt("Temperatura invalida. Digite a temperatura");
+            } 
+
+            quantidadePacientesCadastrados = quantidadePacientesCadastrados + 1;
+            
+        }
+
+        let mediaIdades = somaIdades / quantidadePacientesCadastrados;
+
+        alert(
+            "===== RELATÓRIO DE MÉDICOS =====\n" +
+            "Pacientes cadastrados: " + quantidadePacientesCadastrados + "\n" +
+            "Média de idades: " + mediaIdades + " anos\n" +
+            "Maiores de 60 anos: " + contadorMaioresDeSessenta + "\n" +
+            "Maior temperatura: " + maiorTemperatura + "°C\n" +
+            "Menor temperatura: " + menorTemperatura + "°C\n" +
+            "================================"
+        );
+    }
+function exercicio16SenhaAcessoSistema() { // FALAR COM PROFESSOR SOBRE LET DIGITAR SENHA: 
+    let senhaSistema = "hospital123";
+    let digitarSenha = prompt("Digite sua senha: ");
+
+    while (digitarSenha != senhaSistema) {
+        let digitarSenha = prompt("senha invalida. Digite sua senha: ")
+    }
+    alert("Acesso liberado ao sistema hospitalar.");
+}
+function exercicio17CadastroComValidacaoCompleta() {
+    let indice = 0;
+    let contadorIncorreto = 0;
+    let contadorNomeIncorreto = 0;
+    let contadorCrmIncorreto = 0;
+    let calculoIncorretos = 0;
+    let contadorIncorretoCerto = 0;
+
+    while (indice < 5) {
+        let nomeMedico = prompt("digite o nome do médico: ");
+        let crmMedico = prompt("Digite seu CRM: ");
+
+        while (nomeMedico.length < 2) {
+            alert("Nome: " + nomeMedico)
+            nomeMedico = prompt("Nome invalido. digite  o nome do médico: ").trim();
+            contadorNomeIncorreto = contadorNomeIncorreto + 1;
+        } 
+        if (crmMedico.length < 3) {
+            alert("CRM: " + crmMedico)
+            crmMedico = prompt("CRM invalido. Digite o CRM correto: ").trim();
+            contadorCrmIncorreto = contadorCrmIncorreto + 1;
+        }
+        
+        if ((nomeMedico.length > 2 === true) && (crmMedico.length > 3 === true)) {
+            calculoIncorretos = contadorCrmIncorreto + contadorNomeIncorreto ;
+            contadorIncorreto = calculoIncorretos;
+        } 
+        if (contadorIncorreto % 2 === 0) {
+            contadorIncorretoCerto = contadorIncorreto / 2;
+        }
+    indice = indice + 1;
+    }
+    alert("Cadastros incorretos: " + contadorIncorretoCerto)
+}
+function exercicio18RelatorioFinalInternacoes() {
+    let indice = 0;
+    let nomeMaiorInternacao = 0;
+    let quantidadeDiasInternado = 0;
+
+    while (indice < 3) {
+        let nome = prompt("Digite o nome: ");
+        while ((nome.length < 2) || (nome.length > 20)) { 
+                let nome = prompt("Nome inváilido, deve conter no minino 2 caracteres e no maximo 20." +
+                    "\n digite seu nome: "
+                ).trim();   
+        }
+        let quantidadeDiasInternado = parseInt(prompt("Quantos dias internado; "));
+    
+    }
+}
+
 
 
 
