@@ -597,3 +597,14 @@ function exercicio33EncontrarNomeMaisLongo() {
         let nome = prompt("Digite seu nome: ") 
     }
 }
+
+function exercicio41ForTabuadaIntervalo(){
+    let numeroInicial = prompt("Escreva o numero inicial: ");
+    let numeroFinal = prompt("Escreava o numero final: ");
+    let total = 0;
+
+    for ( i = 0; i < numeroFinal; i = i + 1){
+        total = numeroInicial * i;
+        console.log(numeroInicial + " *" + i);
+    }
+}
